@@ -1,6 +1,8 @@
+// Sidebar.js
 import styled from "styled-components";
 import Logo from "./Logo";
 import MainNav from "./MainNav";
+import { device } from "../styles/breakpoints";
 
 const StyledSidebar = styled.aside`
   background-color: var(--color-grey-0);
@@ -11,11 +13,20 @@ const StyledSidebar = styled.aside`
   display: flex;
   flex-direction: column;
   gap: 3.2rem;
+  transition: 0.4s ease-in-out;
+
+  left: ${({ isVisible }) => (isVisible ? "0" : "-100%")};
+
+  @media ${device.tablet} {
+    position: absolute;
+    width: 70%;
+    height: 100%;
+  }
 `;
 
-function Sidebar() {
+function Sidebar({ isVisible }) {
   return (
-    <StyledSidebar>
+    <StyledSidebar isVisible={isVisible}>
       <Logo />
       <MainNav />
     </StyledSidebar>
