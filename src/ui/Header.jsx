@@ -4,12 +4,12 @@ import { FaBars } from "react-icons/fa";
 import { device } from "../styles/breakpoints";
 
 const StyledHeader = styled.header`
+  display: flex;
+  align-items: center;
   background-color: var(--color-grey-0);
   padding: 1.2rem 4.8rem;
   border-bottom: 1px solid var(--color-grey-100);
-  display: flex;
   gap: 2.4rem;
-  align-items: center;
 `;
 
 const MenuIcon = styled.div`
@@ -25,6 +25,8 @@ const MenuIcon = styled.div`
   @media ${device.tablet} {
     display: block;
     z-index: 999;
+    display: flex;
+    align-items: center;
   }
 `;
 
@@ -32,9 +34,9 @@ function Header({ toggleSidebar }) {
   return (
     <StyledHeader>
       <MenuIcon onClick={toggleSidebar}>
-        <FaBars />
+        <FaBars size={24} />
       </MenuIcon>
-      Header
+      <div>Header</div>
     </StyledHeader>
   );
 }

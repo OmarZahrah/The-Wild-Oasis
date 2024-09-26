@@ -1,9 +1,5 @@
 import styled, { css } from "styled-components";
-
-// const test = css`
-//   text-align: center;
-//   ${10 > 5 && "background-color: yellow"}
-// `;
+import { device } from "../styles/breakpoints";
 
 const Heading = styled.h1`
   ${(props) =>
@@ -11,6 +7,13 @@ const Heading = styled.h1`
     css`
       font-size: 3rem;
       font-weight: 600;
+
+      @media ${device.tablet} {
+        font-size: 2.5rem;
+      }
+      @media ${device.mobile} {
+        font-size: 2.2rem;
+      }
     `}
 
   ${(props) =>

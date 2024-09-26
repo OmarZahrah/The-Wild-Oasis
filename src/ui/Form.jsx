@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import { device } from "../styles/breakpoints";
 
 const Form = styled.form`
   ${(props) =>
@@ -20,6 +21,10 @@ const Form = styled.form`
     
   overflow: hidden;
   font-size: 1.4rem;
+
+  @media ${device.mobile} {
+    padding: 1rem;
+  }
 `;
 
 export default Form;

@@ -1,5 +1,5 @@
 import Heading from "../ui/Heading";
-import Row from "../ui/Raw";
+import Row from "../ui/Row";
 
 function Account() {
   return (
