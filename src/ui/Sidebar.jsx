@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Logo from "./Logo";
 import MainNav from "./MainNav";
 import { device } from "../styles/breakpoints";
+import Uploader from "../data/Uploader";
 
 const StyledSidebar = styled.aside`
   background-color: var(--color-grey-0);
@@ -29,6 +30,7 @@ function Sidebar({ isVisible }) {
     <StyledSidebar isVisible={isVisible}>
       <Logo />
       <MainNav />
+      <Uploader />
     </StyledSidebar>
   );
 }
