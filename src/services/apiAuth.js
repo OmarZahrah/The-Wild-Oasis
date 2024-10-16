@@ -12,7 +12,10 @@ export async function signup({ fullName, email, password }) {
     },
   });
 
-  if (error) throw new Error(error.message);
+  if (error) {
+    console.log(error);
+    throw new Error(error.message);
+  }
 
   return data;
 }
