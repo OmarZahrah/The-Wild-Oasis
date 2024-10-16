@@ -30,7 +30,7 @@ function Sidebar({ isVisible }) {
     <StyledSidebar isVisible={isVisible}>
       <Logo />
       <MainNav />
-      <Uploader />
+      {/* <Uploader /> */}
     </StyledSidebar>
   );
 }
