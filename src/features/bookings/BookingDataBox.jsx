@@ -11,6 +11,7 @@ import DataItem from "../../ui/DataItem";
 import { Flag } from "../../ui/Flag";
 
 import { formatDistanceFromNow, formatCurrency } from "../../utils/helpers";
+import { device } from "../../styles/breakpoints";
 
 const StyledBookingDataBox = styled.section`
   /* Box */
@@ -30,6 +31,12 @@ const Header = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  @media ${device.mobile} {
+    flex-direction: column;
+    padding: 2rem;
+    align-items: flex-start;
+  }
 
   svg {
     height: 3.2rem;
@@ -53,6 +60,9 @@ const Header = styled.header`
 
 const Section = styled.section`
   padding: 3.2rem 4rem 1.2rem;
+  @media ${device.mobile} {
+    padding: 4rem 2rem;
+  }
 `;
 
 const Guest = styled.div`
@@ -61,6 +71,10 @@ const Guest = styled.div`
   gap: 1.2rem;
   margin-bottom: 1.6rem;
   color: var(--color-grey-500);
+
+  @media ${device.mobile} {
+    flex-wrap: wrap;
+  }
 
   & p:first-of-type {
     font-weight: 500;
@@ -147,7 +161,7 @@ function BookingDataBox({ booking }) {
           <span>&bull;</span>
           <p>{email}</p>
           <span>&bull;</span>
-          <p>National ID {nationalID}</p>
+          <p className="national-id">National ID {nationalID}</p>
         </Guest>
 
         {observations && (

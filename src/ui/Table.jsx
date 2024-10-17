@@ -73,6 +73,10 @@ const StyledRow = styled(CommonRow)`
 
 const StyledBody = styled.section`
   margin: 0.4rem 0;
+
+  @media ${device.mobile} {
+    overflow: scroll;
+  }
 `;
 
 const Footer = styled.footer`
