@@ -25,11 +25,14 @@ const StyledSidebar = styled.aside`
   }
 `;
 
-function Sidebar({ isVisible }) {
+function Sidebar({ isVisible, setIsVisible }) {
+  function handleNavClick(e) {
+    if (e.target.closest(".nav-link")) setIsVisible(false);
+  }
   return (
     <StyledSidebar isVisible={isVisible}>
       <Logo />
-      <MainNav />
+      <MainNav onClick={handleNavClick} />
       {/* <Uploader /> */}
     </StyledSidebar>
   );
