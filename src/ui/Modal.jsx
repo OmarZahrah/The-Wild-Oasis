@@ -18,8 +18,8 @@ const StyledModal = styled.div`
 
   @media ${device.tablet} {
     width: 100%;
-    top: 50%;
-    left: 50%;
+    height: 90%;
+    overflow-y: scroll;
   }
 `;
 

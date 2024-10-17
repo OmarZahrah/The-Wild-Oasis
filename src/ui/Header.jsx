@@ -12,13 +12,18 @@ const StyledHeader = styled.header`
   border-bottom: 1px solid var(--color-grey-100);
   gap: 2.4rem;
   justify-content: space-between;
+  @media ${device.tablet} {
+    padding: 2rem;
+  }
+  @media ${device.mobile} {
+    padding: 1rem;
+  }
 `;
 
 const MenuIcon = styled.div`
   cursor: pointer;
   font-size: 1.5rem;
   color: var(--color-grey-800);
-  /* display: none; */
   visibility: hidden;
 
   &:hover {
