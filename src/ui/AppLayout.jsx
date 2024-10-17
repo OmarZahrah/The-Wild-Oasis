@@ -22,6 +22,9 @@ const Main = styled.main`
   padding: 4rem 4.8rem 6.4rem;
   overflow: scroll;
 
+  @media ${device.tablet} {
+    padding: 4rem 2rem;
+  }
   @media ${device.mobile} {
     padding: 4rem 1rem;
   }

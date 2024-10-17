@@ -6,6 +6,25 @@ import {
 } from "react-icons/hi2";
 import Stat from "./Stat";
 import { formatCurrency } from "../../utils/helpers";
+import styled from "styled-components";
+import { device } from "../../styles/breakpoints";
+
+const StatsBox = styled.div`
+  display: flex;
+  gap: 2rem;
+  grid-column: 1/-1;
+  @media ${device.mobile} {
+    overflow-x: scroll;
+    &::-webkit-scrollbar-thumb {
+      background-color: #d4d4d4;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    &::-webkit-scrollbar {
+      height: 0.5rem;
+    }
+  }
+`;
 
 function Stats({ bookings, confirmedStays, numDays, cabinCount }) {
   // 1.
@@ -24,7 +43,7 @@ function Stats({ bookings, confirmedStays, numDays, cabinCount }) {
   // num checked in nights / all available nights (num days * num cabins)
 
   return (
-    <>
+    <StatsBox>
       <Stat
         title="Bookings"
         color="blue"
@@ -49,7 +68,7 @@ function Stats({ bookings, confirmedStays, numDays, cabinCount }) {
         icon={<HiOutlineChartBar />}
         value={Math.round(occupation * 100) + "%"}
       />
-    </>
+    </StatsBox>
   );
 }
 

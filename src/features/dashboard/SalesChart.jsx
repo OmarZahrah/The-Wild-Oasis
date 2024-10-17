@@ -14,8 +14,15 @@ import { useDarkMode } from "../../context/DarkModeContext";
 import { eachDayOfInterval, format, isSameDay, subDays } from "date-fns";
 
 const StyledSalesChart = styled(DashboardBox)`
-  grid-column: 1 / -1;
-
+  overflow: scroll;
+  &::-webkit-scrollbar-thumb {
+    background-color: #d4d4d4;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  &::-webkit-scrollbar {
+    height: 0.5rem;
+  }
   /* Hack to change grid line colors */
   & .recharts-cartesian-grid-horizontal line,
   & .recharts-cartesian-grid-vertical line {
@@ -64,7 +71,8 @@ function SalesChart({ bookings, numDays }) {
         {format(allDates.at(-1), "MMM dd yyyy")}{" "}
       </Heading>
 
-      <ResponsiveContainer height={300} width="100%">
+      {/* <ResponsiveContainer height={300} width="100%"> */}
+      <ResponsiveContainer height={300} width="120%">
         <AreaChart data={data}>
           <XAxis
             dataKey="label"
