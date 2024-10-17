@@ -58,7 +58,7 @@ function App() {
             <Route path="*" element={<PageNotFound />} />
           </Routes>
         </BrowserRouter>
-        <ReactQueryDevtools initialIsOpen={false} />
+
         <Toaster
           position="top-center"
           gutter={12}

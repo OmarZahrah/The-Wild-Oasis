@@ -13,7 +13,6 @@ export async function signup({ fullName, email, password }) {
   });
 
   if (error) {
-    console.log(error);
     throw new Error(error.message);
   }
 
