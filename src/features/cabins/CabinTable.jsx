@@ -5,6 +5,10 @@ import Table from "../../ui/Table";
 import Menus from "../../ui/Menus";
 import { useSearchParams } from "react-router-dom";
 import Empty from "../../ui/Empty";
+import { MdBedroomParent } from "react-icons/md";
+import { MdReduceCapacity } from "react-icons/md";
+import { MdAttachMoney } from "react-icons/md";
+import { BiSolidOffer } from "react-icons/bi";
 
 function CabinTable() {
   const { cabins, isLoading } = useCabins();
@@ -35,13 +39,38 @@ function CabinTable() {
 
   return (
     <Menus>
-      <Table columns="0.6fr 1.8fr 2.2fr 1fr 1fr 1fr">
+      <Table
+        columns="0.6fr 1.8fr 2.2fr 1fr 1fr 1fr"
+        // mobileColumns=" 1.8fr 2.2fr 1fr 1fr 1fr"
+        mobileColumns=" 1fr 2fr 1fr 1fr 1fr"
+      >
         <Table.Header>
-          <div></div>
-          <div>Cabin</div>
-          <div>Capacity</div>
-          <div>Price</div>
-          <div>Discount</div>
+          <div className="responsive-remove"></div>
+          <div className="header-box">
+            <span className="header-icon">
+              <MdBedroomParent />
+            </span>
+            <span className="header-title">Cabin</span>{" "}
+          </div>
+          <div className="header-box">
+            <span className="header-icon">
+              <MdReduceCapacity />
+            </span>
+            <span className="header-title">Capacity</span>{" "}
+          </div>
+          <div className="header-box">
+            <span className="header-icon">
+              <MdAttachMoney />
+            </span>
+            <span className="header-title">Price</span>{" "}
+          </div>
+          <div className="header-box">
+            <span className="header-icon">
+              <BiSolidOffer />
+            </span>
+            <span className="header-title">Discount</span>{" "}
+          </div>
+
           <div></div>
         </Table.Header>
         <Table.Body

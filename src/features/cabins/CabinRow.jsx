@@ -9,6 +9,7 @@ import Modal from "../../ui/Modal";
 import ConfirmDelete from "../../ui/ConfirmDelete";
 import Table from "../../ui/Table";
 import Menus from "../../ui/Menus";
+import { device } from "../../styles/breakpoints";
 
 const Img = styled.img`
   display: block;
@@ -17,13 +18,20 @@ const Img = styled.img`
   object-fit: cover;
   object-position: center;
   transform: scale(1.5) translateX(-7px);
+  @media ${device.mobile} {
+    display: none;
+  }
 `;
 
 const Cabin = styled.div`
+  width: fit-content;
   font-size: 1.6rem;
   font-weight: 600;
   color: var(--color-grey-600);
   font-family: "Sono";
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 `;
 
 const Price = styled.div`
@@ -66,7 +74,7 @@ function CabinRow({ cabin }) {
     <Table.Row>
       <Img src={image} />
       <Cabin>{name}</Cabin>
-      <div>Fits up to {maxCapacity} guests</div>
+      <div>{maxCapacity} guests</div>
       <Price>{formatCurrency(regularPrice)}</Price>
       {discount ? (
         <Discount>{formatCurrency(discount)}</Discount>

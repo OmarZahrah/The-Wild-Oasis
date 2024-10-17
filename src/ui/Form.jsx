@@ -22,6 +22,10 @@ const Form = styled.form`
   overflow: hidden;
   font-size: 1.4rem;
 
+  @media ${device.tablet} {
+    width: 100%;
+    padding: 3rem;
+  }
   @media ${device.mobile} {
     padding: 1rem;
   }

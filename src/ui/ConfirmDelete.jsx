@@ -1,12 +1,17 @@
 import styled from "styled-components";
 import Button from "./Button";
 import Heading from "./Heading";
+import { device } from "../styles/breakpoints";
 
 const StyledConfirmDelete = styled.div`
   width: 40rem;
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
+
+  @media ${device.mobile} {
+    width: 100%;
+  }
 
   & p {
     color: var(--color-grey-500);

@@ -1,5 +1,6 @@
 import { createContext, useContext } from "react";
 import styled from "styled-components";
+import { device } from "../styles/breakpoints";
 
 const StyledTable = styled.div`
   border: 1px solid var(--color-grey-200);
@@ -8,6 +9,15 @@ const StyledTable = styled.div`
   background-color: var(--color-grey-0);
   border-radius: 7px;
   overflow: hidden;
+
+  @media ${device.mobile} {
+    .responsive-remove {
+      display: none;
+    }
+    .block-span {
+      display: block;
+    }
+  }
 `;
 
 const CommonRow = styled.div`
@@ -16,6 +26,10 @@ const CommonRow = styled.div`
   column-gap: 2.4rem;
   align-items: center;
   transition: none;
+
+  @media ${device.mobile} {
+    grid-template-columns: ${(props) => props.mobileColumns};
+  }
 `;
 
 const StyledHeader = styled(CommonRow)`
@@ -27,6 +41,26 @@ const StyledHeader = styled(CommonRow)`
   letter-spacing: 0.4px;
   font-weight: 600;
   color: var(--color-grey-600);
+
+  .header-box {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    .header-title {
+      @media ${device.mobile} {
+        display: none;
+      }
+    }
+    .header-icon {
+      font-size: 20px;
+      @media ${device.tablet} {
+        display: none;
+      }
+      @media ${device.mobile} {
+        display: block;
+      }
+    }
+  }
 `;
 
 const StyledRow = styled(CommonRow)`
@@ -47,7 +81,6 @@ const Footer = styled.footer`
   justify-content: center;
   padding: 1.2rem;
 
-  /* This will hide the footer when it contains no child elements. Possible thanks to the parent selector :has 🎉 */
   &:not(:has(*)) {
     display: none;
   }
@@ -69,26 +102,31 @@ function useTableContext() {
   return context;
 }
 
-function Table({ columns, children }) {
+function Table({ columns, mobileColumns, children }) {
   return (
-    <TableContext.Provider value={{ columns }}>
+    <TableContext.Provider value={{ columns, mobileColumns }}>
       <StyledTable role="table">{children}</StyledTable>
     </TableContext.Provider>
   );
 }
 
 function Header({ children }) {
-  const { columns } = useTableContext();
+  const { columns, mobileColumns } = useTableContext();
   return (
-    <StyledHeader role="row" columns={columns} as="header">
+    <StyledHeader
+      role="row"
+      columns={columns}
+      mobileColumns={mobileColumns}
+      as="header"
+    >
       {children}
     </StyledHeader>
   );
 }
 function Row({ children }) {
-  const { columns } = useTableContext();
+  const { columns, mobileColumns } = useTableContext();
   return (
-    <StyledRow role="row" columns={columns}>
+    <StyledRow role="row" columns={columns} mobileColumns={mobileColumns}>
       {children}
     </StyledRow>
   );

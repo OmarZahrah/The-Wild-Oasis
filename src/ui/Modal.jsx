@@ -3,6 +3,7 @@ import { createPortal } from "react-dom";
 import { HiXMark } from "react-icons/hi2";
 import styled from "styled-components";
 import { useOutsideClick } from "../hooks/useOutsideClick";
+import { device } from "../styles/breakpoints";
 
 const StyledModal = styled.div`
   position: fixed;
@@ -14,14 +15,21 @@ const StyledModal = styled.div`
   box-shadow: var(--shadow-lg);
   padding: 3.2rem 4rem;
   transition: all 0.5s;
+
+  @media ${device.tablet} {
+    width: 100%;
+    top: 50%;
+    left: 50%;
+  }
 `;
 
 const Overlay = styled.div`
+  overflow-y: scroll;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background-color: var(--backdrop-color);
   backdrop-filter: blur(4px);
   z-index: 1000;

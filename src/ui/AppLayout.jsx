@@ -48,7 +48,10 @@ function AppLayout() {
 
   return (
     <StyledAppLayout>
-      <Sidebar isVisible={isSidebarVisible} />
+      <Sidebar
+        isVisible={isSidebarVisible}
+        setIsVisible={setIsSidebarVisible}
+      />
       <Header toggleSidebar={toggleSidebar} />
       <Main>
         <Container>

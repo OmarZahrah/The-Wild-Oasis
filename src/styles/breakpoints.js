@@ -1,7 +1,8 @@
 // breakpoints.js
 const size = {
   mobile: "576px",
-  tablet: "768px",
+  // tablet: "768px",
+  tablet: "850px",
   laptop: "1024px",
   desktop: "1200px",
 };
